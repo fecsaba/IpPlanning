@@ -1,0 +1,113 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IpPlanning"
+        xmlns:Properties="clr-namespace:IpPlanning.Properties" x:Name="mw" x:Class="IpPlanning.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow"  Height="600" Width="800" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid x:Name="mg" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button Name="selPer" Grid.Column="0" Content="/" Visibility="Hidden" FontSize="36" FontWeight="Bold" Margin="10,20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="SelMask_Click" Width="222">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button Name="selMask" Grid.Column="0" Content="Subnet mask" Visibility="Visible" FontSize="36" FontWeight="Bold" Margin="10,20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="SelMask_Click" >
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button Name="reset" Grid.Column="2" Content="Reset" Visibility="Visible" FontSize="36" FontWeight="Bold" Margin="10,20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="reset_Click"  >
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <WrapPanel Name="TypeAndNumber" Grid.Column="1" >
+            <Label Name="type" Content="A hálózat tipusa: x" FontSize="24"/>
+            <Label Name="numOfIp" Content="Kiosztható: 0" FontSize="24" TextOptions.TextHintingMode="Animated" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Name="defMask" Content="Alapértelmezett maszk: 0.0.0.0" FontSize="12" TextOptions.TextHintingMode="Animated" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </WrapPanel>
+
+        <Grid Name="IP" Grid.Row="1" Grid.ColumnSpan="3" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+            <Label Name="IPTitle" Grid.Row="0"  Content="Kérem az Ip címet " FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"  HorizontalContentAlignment="Center" />
+            <Canvas Name="IpInput" Grid.Row="1"  Height="47"  Width="792" HorizontalAlignment="Center" VerticalAlignment="Center"  >
+                <!--Programból for ciklussal-->
+            </Canvas>
+            
+
+        </Grid>
+        <Grid Name="Mask" Grid.Row="2" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+            <Label Name="MaskTitle" Grid.Row="0" Content="Kérem az alhálózati maszkot" FontSize="20" FontWeight="Bold" ScrollViewer.VerticalScrollBarVisibility="Disabled" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+            <Label Name="PerTitle" Grid.Row="0" Content="Kérem a / értéket" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"  />
+            <Canvas Name="MaskInput" Grid.Row="1" Height="47"  Width="792" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <!--Programból for ciklussal-->
+            </Canvas>
+            <Canvas Name="PerInput" Grid.Row="1" Height="47"  Width="792" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+                <!--Programból -->
+            </Canvas>
+
+        </Grid>
+        <Grid Name="binResult" Grid.Row="3" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Canvas Name="IPBinResult"  Grid.Column="0"
+                         Grid.Row="0" Height="57" Width="792">
+                <!--Programból-->
+            </Canvas>
+            <Canvas Name="MaskBinResult"  Grid.Column="1"
+                        Grid.Row="1" Width="792" Height="57">
+                <!--Programból-->
+            </Canvas>
+            
+        </Grid>
+        <WrapPanel Grid.Row="4" >
+            <Label Name="NetAddress" Content="Hálózat címe: 0.0.0.0" FontSize="16">
+                
+            </Label>
+            <Label Name="Br" Content="Szórási cím" FontSize="16">
+                
+            </Label>
+            
+        </WrapPanel>
+        <Button Name="result" Grid.Column="1" Grid.Row="4" Content="Eredmény" Visibility="Visible" FontSize="36" FontWeight="Bold" Margin="10,20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Result_Click"  >
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <WrapPanel Grid.Row="4" Grid.Column="2">
+            <Label Name="FirstAddress" Content="Első cím: 0.0.0.0" FontSize="16">
+
+            </Label>
+            <Label Name="LastAddress" Content="Utolsó cím: 0.0.0.0" FontSize="16">
+
+            </Label>
+
+        </WrapPanel>
+
+    </Grid>
+</Window>
